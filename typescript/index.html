@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>TypeScript, the good, the bad &amp; the type safety</title>
+
+		<meta name="description" content="All thinks typescript">
+		<meta name="author" content="Aaron Powell">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+<div class="slides">
+    <section>
+        <section>
+            <h1>typescript</h1>
+            <p>The Good,</p>
+            <p>The Bad,</p>
+            <p>&amp;</p>
+            <p>The Type Safe</p>
+        </section>
+        <section>
+            <h2>Me</h2>
+            <h3>Aaron Powell</h3>
+            <div>Readify, Senior Dev, Technical Specialist (Web)</div>
+            <div>
+                <a href="http://twitter.com/slace">@slace</a>
+            </div>
+            <div>
+                <a href="http://www.aaron-powell.com">http://www.aaron-powell.com</a>
+            </div>
+            <div>JavaScript nerd</div>
+            <div>International man of mistery</div>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>For those who don't know</h2>
+<blockquote>
+    TypeScript is a language for application-scale JavaScript development.
+    
+TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+
+Any browser. Any host. Any OS. Open Source.
+</blockquote>
+            <p>-&nbsp;<a href="http://www.typescriptlang.org/">http://www.typescriptlang.org/</a>
+            <br>
+        </p>
+
+</section>
+        <section>    <img src="http://i0.kym-cdn.com/photos/images/original/000/000/151/n725075089_288918_2774.jpg">
+</section>
+    </section>
+    <section>
+        <h2>Let's try this again</h2>
+        <blockquote>JavaScript for C# developers, because untyped languages are scary and J# isn't doing so well</blockquote>
+        <p>- Me, just now</p>
+    </section>
+    <section>
+        <section>
+            <h2>Superset</h2>
+        </section>
+        <section>
+            <div>
+    <img src="http://upload.wikimedia.org/wikipedia/en/7/73/Superman_shield.png">
+    <br>
+</div>
+</section>
+        </section>
+        <section>
+            <section>
+                <h2>Not quite...</h2>
+            </section>
+            <section>
+                <h2>
+    jQuery click handler</h2>
+<br>
+<pre>$(document).on('click', 'a', function (e) {
+    e.preventDefault();
+    window.open(this.href);
+});</pre>
+
+</section>
+                <section>    <img src="https://dl.dropbox.com/u/9397363/memes/not-sure-if-typescript.jpg">
+</section>
+            </section>
+            <section>
+                <pre>var add = function(x: number, y: number): number {
+  return x + y;
+};
+
+var sum = add(1, 2);
+console.log(sum); //3
+add('a', 'b'); //TypeScript compiler error</pre>
+            </section>
+            <section>
+                <section>
+                    <h2>Safety in Numbers</h2>
+                    <div>
+                        <img src="http://distilleryimage1.s3.amazonaws.com/f9d13718dd3811e1984822000a1cf771_7.jpg">
+                        <br>
+                    </div>
+                </section>
+                <section>
+                    <h2>AnD other types</h2>
+                </section>
+            </section>
+            <section>
+                <h2>Type annotations</h2>
+                <div>
+                    <ul>
+                        <li style="text-align: left;">You can specify argument types</li>
+                        <li style="text-align: left;">You can specify return types</li>
+                        <li style="text-align: left;">Types can be determined from usage</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <section>
+                    <h2>Object structure</h2>
+                    <div>I have an object</div>
+                    <div>
+                        <br>
+                    </div>
+                    <div>...</div>
+                    <div>
+                        <br>
+                    </div>
+                    <div>I want specify that that's what the function takes</div>
+                </section>
+                <section>
+                    <pre>interface Person {
+  firstName: string;
+  lastName: string;
+  dob: Date;
+}
+
+var canDrink = function(person: Person): Boolean {
+  return person.dob.getFullYear() &lt; new Date().getFullYear() - 19; 
+};
+
+var person = {
+  firstName: 'Aaron',
+  lastName: 'Powell',
+  dob: new Date(27, 04, 1984)
+};
+
+if (canDrink(person)) {
+  console.log(person.firstName + ' grab yourself a beer!');
+} else {
+  console.log(person.firstName + ' baby needs his bottle');
+}</pre>
+                </section>
+            </section>
+            <section>
+                <section>    <img src="http://www.terrainfirma.co.uk/blog/wp-content/uploads/2012/04/Elephant-in-the-room.jpg">
+</section>
+                <section>
+                    <h2>Classes</h2>
+                </section>
+                <section>
+                    <p>
+                    <br>
+                </p>
+                <p>
+                <br>
+            </p>
+            <p>
+            <br>
+        </p>
+        <p>Yet another class implementation!</p>
+    </section>
+    <section>
+        <h2>Woo!</h2>
+    </section>
+    <section>
+        <pre>class Person {
+  constructor(public firstName: string, public lastName: string){
+  }
+  
+  greet() {
+    console.log('Hello, my name is ' + this.firstName + ' ' + this.lastName);
+  }
+  
+  marry(partner: Person) {
+    console.log('Let\'s celebrate the marriage of ' + this.firstName + ' and ' + partner.firstName);
+  }
+}
+</pre>
+</section>
+        <section>
+            <pre>class Parent extends Person {
+  constructor(public firstName: string, public lastName: string, public children: Person[]) {
+    super(firstName, lastName)
+  }
+}
+
+var dad = new Parent('Ian', 'Powell', [new Person('Aaron', 'Powell')]);
+
+dad.greet();<br>
+</pre>
+</section>
+        </section>
+        <section>
+            <section>
+                <h2>Class design</h2>
+<blockquote>&nbsp;The trinity of constructor functions, prototypes, and instances are more than adequate for solving the problems that classes solve ... The intent ... is not to change those semantics. Instead, it’s to provide a terse and declarative surface for those semantics...&nbsp;</blockquote>
+<div>
+    <br>
+</div>
+</section>
+                <section>
+                    <h2>ECMAScript 6 class proposal</h2>
+                    <div>
+                        <a href="http://wiki.ecmascript.org/doku.php?id=harmony:classes">Harmony&nbsp;classes</a>
+                        <br>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Promoting good design</h2>
+                    <div>
+                        <br>
+                    </div>
+                    <h2>Modules</h2>
+                </section>
+                <section>
+                    <pre>module Collections {
+    export class LinkedList{
+		root: any;
+		constructor() {
+			this.root = null;
+		}
+		
+		add(item: any) {
+		    //add item
+		}
+
+		print() {
+			//print items
+		}
+	}
+}
+
+var list = new Collections.LinkedList();
+list.add(1);</pre>
+<div>
+<a href="ts/module.ts" target="_blank">Full code</a>&nbsp;| <a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">Proposal</a>
+                </div>
+</section>
+            </section>
+            <section>
+                <section>
+                    <h2>Other goodies</h2>
+                </section>
+                <section>
+                    <h2>Rest Parameters</h2>
+                    <pre>var sum = function (...numbers: number[]) {
+	return numbers.reduce(function (x, y) {
+		return x + y; 
+	});
+}
+
+console.log(sum(1, 2, 3, 4, 5));<br>
+                </pre>
+                <p>
+                <a href="http://wiki.ecmascript.org/doku.php?id=harmony:rest_parameters">Proposal</a>
+            </p>
+        </section>
+        <section>
+            <h2>Fat Arrow</h2>
+            <pre>class DoStuff {
+	what: string;
+	
+	stuff() {
+		$.ajax({
+			type: 'get',
+			url: '/foo',
+			success: data =&gt; {
+				this.what = data; 
+			}
+		})
+	}	
+}
+</pre>
+            <p>
+            <a href="http://wiki.ecmascript.org/doku.php?id=harmony:arrow_function_syntax">Proposal</a>
+        </p>
+        <p>
+        <br>
+    </p>
+</section>
+<section>
+    <h2>Enums</h2>
+    <pre>enum Languages {
+	JavaScript = 0,
+	TypeScript = 1,
+	CoffeeScript = 2,
+	Sweetjs = 3,
+	Dart = 666
+}<br>
+</pre>
+</section>
+</section>
+<section>
+    <h2>
+    <img src="http://upload.wikimedia.org/wikipedia/commons/f/f4/20060513_toolbox.jpg">
+    <br>
+</h2>
+</section>
+    <section>
+        <section>
+            <h2>Visual Studio</h2>
+<div>
+    <ul>
+        <li>
+            <a href="http://www.microsoft.com/en-us/download/details.aspx?id=34790">Plugin</a>
+        </li>
+        <li>Built on top of the JavaScript editor</li>
+        <li>Doesn't need a <code>.proj</code> file</li>
+        <li>
+            Provided template uses <code>.csproj</code> with a post-build event
+        </li>
+            <li>Web Essentials 2012 supports it</li>
+    </ul>
+</div>
+
+
+</section>
+            <section>
+                <h2>Visual Studio</h2>
+<div>
+    <ul>
+        <li>Intellisense</li>
+        <li>Rename refactoring</li>
+        <li>Go to definition</li>
+    </ul>
+</div>
+</section>
+                <section>
+                    <h2>Definition Files</h2>
+                    <div>foo.d.ts</div>
+                    <div>
+                        <br>
+                    </div>
+                    <div>Type information without the logic</div>
+                    <div>
+                        <br>
+                    </div>
+                    <div>Many node.js modules done</div>
+                    <div>jQuery done</div>
+                    <div>
+                        <a href="https://github.com/borisyankov/DefinitelyTyped">DefinitelyTyped</a>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <h2>Node.js</h2>
+                <pre>npm install -g typescript
+tsc modules.ts</pre>
+            </section>
+            <section>
+                <h2>Other editors</h2>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="http://blogs.msdn.com/b/interoperability/archive/2012/10/01/sublime-text-vi-emacs-typescript-enabled.aspx">Sublime Text 2, EMACS, Vi</a>
+                        </li>
+                        <li>Syntax highlighting</li>
+                    </ul>
+                </div>
+                <div>
+                    <br>
+                </div>
+            </section>
+            <section>
+                <section>
+                    <h2>Soooo......</h2>
+                </section>
+                <section>
+                    <h2>CoffeeScript</h2>
+                </section>
+                <section>
+                    <p>Apples and Oranges</p>
+                    <p>
+                    <br>
+                </p>
+                <p>CoffeeScript hides JavaScript behind a new syntax</p>
+                <p>TypeScript extends the existing syntax</p>
+                <p>
+                <br>
+            </p>
+            <p>CoffeeScript doesn't attempt type safety</p>
+        </section>
+        <section>
+            <h2>Dart</h2>
+</section>
+            <section>
+                <div>
+    <img src="https://dl.dropbox.com/u/9397363/memes/Ohwow.jpg">
+</div>
+</section>
+            </section>
+            <section>
+                <h2>Final thoughts</h2>
+                <div>I hope it stays ES6 compliant</div>
+                <div>
+                    <br>
+                </div>
+                <div>I'm more inclined over CoffeeScript</div>
+                <div>
+                    <br>
+                </div>
+                <div>Debugging needs buy-in from either VS or IE team</div>
+                <div>
+                    <br>
+                </div>
+                <div>Seems to have provided some <a href="http://blogs.msdn.com/b/bharry/archive/2012/10/24/typescript-a-real-world-story-of-adoption-in-tfs.aspx">real benefits</a>&nbsp;already</div>
+                <div>
+                    <br>
+                </div>
+            </section>
+        </div>
+
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
