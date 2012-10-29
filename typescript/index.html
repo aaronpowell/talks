@@ -97,23 +97,23 @@ Any browser. Any host. Any OS. Open Source.
                 <h2>
     jQuery click handler</h2>
 <br>
-<pre>$(document).on('click', 'a', function (e) {
+<pre><code>$(document).on('click', 'a', function (e) {
     e.preventDefault();
     window.open(this.href);
-});</pre>
+});</code></pre>
 
 </section>
                 <section>    <img src="img/not-sure-if-typescript.jpg">
 </section>
             </section>
             <section>
-                <pre>var add = function(x: number, y: number): number {
+                <pre><code>var add = function(x: number, y: number): number {
   return x + y;
 };
 
 var sum = add(1, 2);
 console.log(sum); //3
-add('a', 'b'); //TypeScript compiler error</pre>
+add('a', 'b'); //TypeScript compiler error</code></pre>
             </section>
             <section>
                 <section>
@@ -151,7 +151,7 @@ add('a', 'b'); //TypeScript compiler error</pre>
                     <div>I want specify that that's what the function takes</div>
                 </section>
                 <section>
-                    <pre>interface Person {
+                    <pre><code>interface Person {
   firstName: string;
   lastName: string;
   dob: Date;
@@ -171,7 +171,7 @@ if (canDrink(person)) {
   console.log(person.firstName + ' grab yourself a beer!');
 } else {
   console.log(person.firstName + ' baby needs his bottle');
-}</pre>
+}</code></pre>
                 </section>
             </section>
             <section>
@@ -196,7 +196,7 @@ if (canDrink(person)) {
         <h2>Woo!</h2>
     </section>
     <section>
-        <pre>class Person {
+        <pre><code>class Person {
   constructor(public firstName: string, public lastName: string){
   }
   
@@ -208,10 +208,10 @@ if (canDrink(person)) {
     console.log('Let\'s celebrate the marriage of ' + this.firstName + ' and ' + partner.firstName);
   }
 }
-</pre>
+</code></pre>
 </section>
         <section>
-            <pre>class Parent extends Person {
+            <pre><code>class Parent extends Person {
   constructor(public firstName: string, public lastName: string, public children: Person[]) {
     super(firstName, lastName)
   }
@@ -220,7 +220,7 @@ if (canDrink(person)) {
 var dad = new Parent('Ian', 'Powell', [new Person('Aaron', 'Powell')]);
 
 dad.greet();<br>
-</pre>
+</code></pre>
 </section>
         </section>
         <section>
@@ -248,7 +248,7 @@ dad.greet();<br>
                     <h2>Modules</h2>
                 </section>
                 <section>
-                    <pre>module Collections {
+                    <pre><code>module Collections {
     export class LinkedList{
 		root: any;
 		constructor() {
@@ -266,7 +266,7 @@ dad.greet();<br>
 }
 
 var list = new Collections.LinkedList();
-list.add(1);</pre>
+list.add(1);</code></pre>
 <div>
 <a href="ts/module.ts" target="_blank">Full code</a>&nbsp;| <a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">Proposal</a>
                 </div>
@@ -278,21 +278,21 @@ list.add(1);</pre>
                 </section>
                 <section>
                     <h2>Rest Parameters</h2>
-                    <pre>var sum = function (...numbers: number[]) {
+                    <pre><code>var sum = function (...numbers: number[]) {
 	return numbers.reduce(function (x, y) {
 		return x + y; 
 	});
 }
 
 console.log(sum(1, 2, 3, 4, 5));<br>
-                </pre>
+                </code></pre>
                 <p>
                 <a href="http://wiki.ecmascript.org/doku.php?id=harmony:rest_parameters">Proposal</a>
             </p>
         </section>
         <section>
             <h2>Fat Arrow</h2>
-            <pre>class DoStuff {
+            <pre><code>class DoStuff {
 	what: string;
 	
 	stuff() {
@@ -305,7 +305,7 @@ console.log(sum(1, 2, 3, 4, 5));<br>
 		})
 	}	
 }
-</pre>
+</code></pre>
             <p>
             <a href="http://wiki.ecmascript.org/doku.php?id=harmony:arrow_function_syntax">Proposal</a>
         </p>
@@ -315,14 +315,14 @@ console.log(sum(1, 2, 3, 4, 5));<br>
 </section>
 <section>
     <h2>Enums</h2>
-    <pre>enum Languages {
+    <pre><code>enum Languages {
 	JavaScript = 0,
 	TypeScript = 1,
 	CoffeeScript = 2,
 	Sweetjs = 3,
 	Dart = 666
 }<br>
-</pre>
+</code></pre>
 </section>
 </section>
 <section>
@@ -379,8 +379,8 @@ console.log(sum(1, 2, 3, 4, 5));<br>
             </section>
             <section>
                 <h2>Node.js</h2>
-                <pre>npm install -g typescript
-tsc modules.ts</pre>
+                <pre><code>npm install -g typescript
+tsc modules.ts</code></pre>
             </section>
             <section>
                 <h2>Other editors</h2>
@@ -465,7 +465,8 @@ tsc modules.ts</pre>
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } }
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 
