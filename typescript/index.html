@@ -36,10 +36,10 @@
             <section>
                 <section>
                     <h1>typescript</h1>
-                    <p>The Good,</p>
-                    <p>The Bad,</p>
-                    <p>&amp;</p>
-                    <p>The Type Safe</p>
+                    <p class="fragment">The Good,</p>
+                    <p class="fragment">The Bad,</p>
+                    <p class="fragment">&amp;</p>
+                    <p class="fragment">The Type Safe</p>
                 </section>
                 <section>
                     <h2>Me</h2>
@@ -83,12 +83,7 @@ Any browser. Any host. Any OS. Open Source.
             <section>
                 <section>
                     <h2>Superset</h2>
-                </section>
-                <section>
-                    <div>
-                        <img src="img/Superman_shield.png">
-                        <br>
-                    </div>
+                    <img src="img/Superman_shield.png" class="fragment">
                 </section>
             </section>
             <section>
@@ -133,9 +128,9 @@ add('a', 'b'); //TypeScript compiler error</code></pre>
                 <h2>Type annotations</h2>
                 <div>
                     <ul>
-                        <li style="text-align: left;">You can specify argument types</li>
-                        <li style="text-align: left;">You can specify return types</li>
-                        <li style="text-align: left;">Types can be determined from usage</li>
+                        <li class="fragment" style="text-align: left;">You can specify argument types</li>
+                        <li class="fragment" style="text-align: left;">You can specify return types</li>
+                        <li class="fragment" style="text-align: left;">Types can be determined from usage</li>
                     </ul>
                 </div>
             </section>
@@ -399,23 +394,30 @@ tsc modules.ts</code></pre>
                 </div>
             </section>
             <section>
+                <h2>Debugging</h2>
+                <p class="fragment"><a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/" target="_blank">Source Maps</a></p>
+                <pre class="fragment"><code>tsc -sourcemap foo.ts</code></pre>
+                <p class="fragment"><a href="http://www.aaron-powell.com/web/typescript-source-maps" target="_blank">My blog on it</a></p>
+            </section>
+            <section>
                 <section>
                     <h2>Soooo......</h2>
                 </section>
                 <section>
                     <h2>CoffeeScript</h2>
+                    <img src="img/troll-face.png" alt="Trollolololol" class="fragment">
                 </section>
                 <section>
                     <p>Apples and Oranges</p>
                     <p>
                         <br>
                     </p>
-                    <p>CoffeeScript hides JavaScript behind a new syntax</p>
-                    <p>TypeScript extends the existing syntax</p>
+                    <p class="fragment">CoffeeScript hides JavaScript behind a new syntax</p>
+                    <p class="fragment">TypeScript extends the existing syntax</p>
                     <p>
                         <br>
                     </p>
-                    <p>CoffeeScript doesn't attempt type safety</p>
+                    <p class="fragment">CoffeeScript doesn't attempt type safety</p>
                 </section>
                 <section>
                     <h2>Dart</h2>
@@ -428,22 +430,21 @@ tsc modules.ts</code></pre>
             </section>
             <section>
                 <h2>Final thoughts</h2>
-                <div>I hope it stays ES6 compliant</div>
-                <div>
-                    <br>
-                </div>
-                <div>I'm more inclined over CoffeeScript</div>
-                <div>
-                    <br>
-                </div>
-                <div>Debugging needs buy-in from either VS or IE team</div>
-                <div>
-                    <br>
-                </div>
-                <div>Seems to have provided some <a href="http://blogs.msdn.com/b/bharry/archive/2012/10/24/typescript-a-real-world-story-of-adoption-in-tfs.aspx">real benefits</a>&nbsp;already</div>
-                <div>
-                    <br>
-                </div>
+                <p class="fragment">I hope it stays ES6 compliant</p>
+                <p>
+                </p>
+                <p class="fragment">I'm more inclined over CoffeeScript</p>
+                <p>
+                </p>
+                <p class="fragment">Debugging needs buy-in from either VS or IE team</p>
+                <p>
+                </p>
+                <p class="fragment">Seems to have provided some <a href="http://blogs.msdn.com/b/bharry/archive/2012/10/24/typescript-a-real-world-story-of-adoption-in-tfs.aspx">real benefits</a>&nbsp;already</p>
+            </section>
+            <section>
+                <h2>Questions?</h2>
+                <h2>Comments?</h2>
+                <h2>Abuse?</h2>
             </section>
         </div>
 
@@ -455,22 +456,35 @@ tsc modules.ts</code></pre>
 
     <script>
 
-        // Full list of configuration options available here:
-        // https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
+        (function () {
+            'use strict';
 
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/none
+            var links = document.querySelectorAll('a[href^="http"]'),
+                i = 0,
+                l;
 
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
-                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
-            ]
-        });
+            for (l = links.length; i < l; i += 1) {
+                links[i].target = '_blank';
+            }
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+
+        })();
 
 		</script>
 
