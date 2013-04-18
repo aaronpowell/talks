@@ -1,0 +1,13 @@
+{
+  "name": "talks",
+  "version": "0.0.0",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aaronpowell/talks.git"
+  },
+  "keywords": [
+    "talks"
+  ],
+  "author": "Aaron Powell <me@aaron-powell.com>"
+}

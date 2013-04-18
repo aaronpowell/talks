@@ -1,0 +1,3 @@
+[submodule "indexeddb/extensions/codemirror"]
+	path = indexeddb/extensions/codemirror
+	url = https://github.com/iros/deck.js-codemirror.git
