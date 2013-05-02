@@ -38,6 +38,10 @@
         a.demo {
             font-size: 4.5em;
         }
+
+        li.plain {
+            list-style: none;
+        }
     </style>
 
     <!-- Required Modernizr file -->
@@ -48,17 +52,7 @@
 <!-- Begin slides. Just make elements with a class of slide. -->
 
 <section class="slide">
-    <h1>IndexedDB, a database in your browser</h1>
-</section>
-
-<section class="slide">
-    <h2>Me</h2>
-    <ul>
-        <li>Aaron Powell</li>
-        <li>Readify Senior Developer, IE UserAgent</li>
-        <li><a href="http://www.aaron-powell.com" target="_blank" title="Blog">http://www.aaron-powell.com</a></li>
-        <li><a href="http://twitter.com/slace" target="_blank" title="Twitter">@slace</a></li>
-    </ul>
+    <h1>Flight mode - IndexedDB</h1>
 </section>
 
 <section class="slide">
@@ -172,6 +166,7 @@ objectStore.openCursor().onsuccess = function (e) {
             <ul class="slide">
                 <li><a href="https://github.com/aaronpowell/db.js" target="_blank">db.js</a></li>
                 <li><a href="http://pouchdb.com" target="_blank">PouchDB</a></li>
+                <li><a href="https://github.com/axemclion/jquery-indexeddb" target="_blank">jQuery IndexedDB</a></li>
             </ul>
         </li>
     </ul>
@@ -185,10 +180,17 @@ objectStore.openCursor().onsuccess = function (e) {
 <section class="slide">
     <h2>Questions &amp; Links</h2>
     <ul>
-        <li><a href="http://aaronpowell.github.io/talks/indexeddb" target="_blank">http://aaronpowell.github.io/talks/indexeddb</a></li>
+        <li><a href="http://aaronpowell.github.io/talks/indexeddb" target="_blank">aaronpowell.github.io/talks/indexeddb</a></li>
         <li><a href="https://developer.mozilla.org/en-US/docs/IndexedDB/Using_IndexedDB">Using IndexedDB on MDN</a></li>
         <li><a href="http://www.aaron-powell.com/tagged/indexeddb">My posts on IndexedDB</a></li>
         <li><a href="http://nparashuram.com/IndexedDB/">Parashuram's experiments</a></li>
+    </ul>
+    <ul>
+        <li class="plain">
+            <h3>Me</h3>
+        </li>
+        <li><a href="http://www.aaron-powell.com" target="_blank" title="Blog">aaron-powell.com</a></li>
+        <li><a href="http://twitter.com/slace" target="_blank" title="Twitter">@slace</a></li>
     </ul>
 </section>
 
