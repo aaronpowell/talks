@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=1024, user-scalable=no">
+
+    <title>JavaScript, ALL THE THINGS</title>
+    
+    <!-- Required stylesheet -->
+    <link rel="stylesheet" href="core/deck.core.css">
+    
+    <!-- Extension CSS files go here. Remove or add as needed. -->
+    <link rel="stylesheet" href="extensions/goto/deck.goto.css">
+    <link rel="stylesheet" href="extensions/menu/deck.menu.css">
+    <link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+    <link rel="stylesheet" href="extensions/status/deck.status.css">
+    <link rel="stylesheet" href="extensions/hash/deck.hash.css">
+    <link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+    <!-- Style theme. More available in /themes/style/ or create your own. -->
+    <link rel="stylesheet" href="themes/style/neon.css">
+    
+    <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+    <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+
+    <!-- Codemirror plugin -->
+    <link rel="stylesheet" href="extensions/codemirror/deck.codemirror.css">
+    <link rel="stylesheet" href="extensions/codemirror/themes/default.css">
+    <link rel="stylesheet" href="extensions/codemirror/themes/cobalt.css">
+    
+    <!-- custom css -->
+    <style type="text/css">
+        .CodeMirror-inactive {
+            opacity: 0.3;
+        }
+
+        a.demo {
+            font-size: 4.5em;
+        }
+
+        li.plain {
+            list-style: none;
+        }
+    </style>
+
+    <!-- Required Modernizr file -->
+    <script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide">
+    <h1>
+        JavaScript
+        <br />
+        ALL THE THINGS
+    </h1>
+</section>
+
+<section class="slide">
+    <h2>Hi</h2>
+    <ul>
+        <li class="slide">I'm Aaron Powell</li>
+        <li class="slide">or <a href="http://twitter.com">@slace</a></li>
+        <li class="slide">I blog at <a href="http://www.aaron-powell.com">www.aaron-powell.com</a></li>
+        <li class="slide">I work for <a href="http://readify.net">Readify</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h1>And I love JavaScript</h1>
+</section>
+
+<section class="slide">
+    <h2>What what?</h2>
+    <ul>
+        <li class="slide">How much do you understand your libraries?</li>
+        <li class="slide">Is your first approach to <code>Install-Package jQuery</code>?</li>
+        <li class="slide">Do you obserable all the things?</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <img src="images/i-have-the-power-o.gif" class="vcenter" alt="">
+</section>
+
+<section class="slide">
+    <div class="vcenter">
+        <img src="images/swordfish-o.gif" alt="">
+        <code>git clone -b gh-pages https://github.com/aaronpowell/talks</code>
+    </div>
+</section>
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+    <label for="goto-slide">Go to slide:</label>
+    <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+    <datalist id="goto-datalist"></datalist>
+    <input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Codemirror -->
+<!-- Base codemiror code -->
+<script src="extensions/codemirror/codemirror.js"></script>
+
+<!-- Syntax highlighting Modes -->
+
+<!-- javascript -->
+<script src="extensions/codemirror/mode/javascript/javascript.js"></script>
+
+<!-- html mode (note html mode requires xml, css and javascript) -->
+<script src="extensions/codemirror/mode/xml/xml.js"></script>
+<script src="extensions/codemirror/mode/css/css.js"></script>
+<script src="extensions/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<!-- Plugin code -->
+<script src="extensions/codemirror/deck.codemirror.js"></script>
+
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+    $(function() {
+        var steps = $('[data-highlight-start]').map(function () {
+            return $(this).attr('class').replace('slide ', '');
+        }).get();
+
+        $.deck('.slide');
+
+        $(document).on('deck.change', function (e, from, to) {
+            var slide = $.deck('getSlide', to);
+
+            if (steps.filter(function (s) { return slide.hasClass(s); }).length) {
+                var cm = slide.parent().find('.CodeMirror');
+                cm.find('.CodeMirror-inactive').removeClass('CodeMirror-inactive')
+                var lines = cm.find('.CodeMirror-lines pre:not(.CodeMirror-cursor)');
+                var start = slide.data('highlightStart') - 1;
+                var end = slide.data('highlightEnd') - 1;
+                lines.filter(function (i, line) {
+                    if (i > end || i < start) {
+                        $(line).addClass('CodeMirror-inactive');
+                    }
+                });
+            } else if (slide.find('.CodeMirror').length) {
+                slide.find('.CodeMirror-inactive').removeClass('CodeMirror-inactive');
+            }
+        });
+    });
+</script>
+</body>
+</html>
