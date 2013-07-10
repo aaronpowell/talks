@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Spec Runner</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.3.1/jasmine_favicon.png">
+
+  </head>
+  <body>
+    <script type="application/javascript;version=1.7">
+    (function (global) {
+      'use strict';
+
+      var __extends = global.__extends || function (d, b) {
+          for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+          function __() { this.constructor = d; }
+          __.prototype = b.prototype;
+          d.prototype = new __();
+      };
+
+
+      var Enumerable = function (array) {
+        this._array = array;
+      };
+
+      Enumerable.prototype.__iterator__ = function() {
+        for (var i = 0; i < this._array.length; i++) {
+          yield this._array[i]
+        };
+      };
+
+      Enumerable.prototype.where = function(fn) {
+        return new WhereEnumerable(this, fn);
+      };
+
+      Enumerable.prototype.select = function(fn) {
+        return new SelectEnumerable(this, fn);
+      };
+
+      var WhereEnumerable = (function (__super) {
+        __extends(WhereEnumerable, __super)
+        function WhereEnumerable(enumerable, fn) {
+          __super.call(this, enumerable._array);
+          this._enumerable = enumerable;
+          this._fn = fn;
+        };
+
+        WhereEnumerable.prototype.__iterator__ = function() {
+          var arr = [];
+
+          for (var item in this._enumerable) {
+            if (this._fn(item)) {
+              arr.push(item);
+              yield item;
+            }
+          }
+
+          this._enumerable = new Enumerable(arr);
+        };
+
+        return WhereEnumerable;
+      })(Enumerable);
+
+      var SelectEnumerable = (function (__super) {
+        __extends(SelectEnumerable, __super);
+        function SelectEnumerable(enumerable, fn) {
+          __super.call(this, enumerable._array);
+          this._enumerable = enumerable;
+          this._fn = fn;
+        };
+
+        SelectEnumerable.prototype.__iterator__ = function () {
+          var arr = [];
+
+          for (var item in this._enumerable) {
+            let x = this._fn(item);
+            arr.push(x);
+            yield x;
+          }
+
+          this._enumerable = new Enumerable(arr);
+        };
+
+        return SelectEnumerable;
+      })(Enumerable);
+
+      global.Enumerable = Enumerable;
+
+    })(window);
+
+    (function (global) {
+      'use strict';
+
+      var list = new Enumerable([1, 2, 3]);
+
+      for (var item in list.where(x => x % 2).select(x => x * 2).where(y => y > 1)) {
+        console.log(item);
+      }
+    })(window);
+    </script>
+  </body>
+</html>
