@@ -75,8 +75,14 @@
         expect(elements.length).toEqual(1);
       });
 
+      it('should have an indexer position for the matched elements', function () {
+        var elements = $('.a');
+        expect(elements[0]).toBeDefined();
+        expect(elements[1]).toBeDefined();
+      });
+
       it('should optimise call if single className provided', function () {
-        var cnspy = spyOn(document, 'getElementsByClassName');
+        var cnspy = spyOn(document, 'getElementsByClassName').andCallThrough();
         var elements = $('.a');
         expect(cnspy.wasCalled).toEqual(true);
       });
@@ -102,9 +108,10 @@
       });
 
       it('should optimise call to getElementById', function () {
-        var idspy = spyOn(document, 'getElementById');
+        var idspy = spyOn(document, 'getElementById').andCallThrough();
         var element = $('#context');
         expect(idspy.wasCalled).toEqual(true);
+        expect(element[0]).toBeDefined();
       });
     });
   });
