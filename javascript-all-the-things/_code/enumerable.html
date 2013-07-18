@@ -21,7 +21,18 @@
 
 
       var Enumerable = function (array) {
+        if (this.constructor !== Enumerable) {
+          return new Enumerable(array);
+        }
         this._array = array;
+      };
+
+      var where = function(fn) {
+        return new WhereEnumerable(this, fn);
+      };
+
+      var select = function(fn) {
+        return new SelectEnumerable(this, fn);
       };
 
       Enumerable.prototype.__iterator__ = function() {
@@ -30,13 +41,19 @@
         };
       };
 
-      Enumerable.prototype.where = function(fn) {
-        return new WhereEnumerable(this, fn);
+      Enumerable.prototype.toArray = function() {
+        var arr = [];
+        for (var i in this) {
+          arr.push(i);
+        }
+        return arr;
       };
 
-      Enumerable.prototype.select = function(fn) {
-        return new SelectEnumerable(this, fn);
-      };
+      Enumerable.prototype.where = where;
+      Enumerable.prototype.filter = where;
+
+      Enumerable.prototype.select = select;
+      Enumerable.prototype.map = select;
 
       var WhereEnumerable = (function (__super) {
         __extends(WhereEnumerable, __super)
@@ -87,12 +104,17 @@
 
       global.Enumerable = Enumerable;
 
+      // extension methods
+      Array.prototype.asEnumerable = function() {
+        return new Enumerable(this);
+      };
+
     })(window);
 
     (function (global) {
       'use strict';
 
-      var list = new Enumerable([1, 2, 3]);
+      var list = [1, 2, 3].asEnumerable();
 
       for (var item in list.where(x => x % 2).select(x => x * 2).where(y => y > 1)) {
         console.log(item);
