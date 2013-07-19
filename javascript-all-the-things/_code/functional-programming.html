@@ -71,6 +71,12 @@
 
         expect(values).toEqual([['a', 'b'], [1, 2], [true, false]]);
       });
+
+      it('should merge any number of collections', function () {
+        var values = _.merge([1,2], [3,4], [5,6]);
+
+        expect(values).toEqual([1,2,3,4,5,6]);
+      });
     });
 
     describe('objects', function () {

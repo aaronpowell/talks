@@ -44,11 +44,18 @@
     };
 
     var bind = function (fn, context) {
-        var args = Array.prototype.slice.call(arguments, 2);
+        var args = slice.call(arguments, 2);
 
         return function () {
             return fn.apply(context, args.concat(slice.call(arguments, 0)));
         };
+    };
+
+    var merge = function () {
+        var args = slice.call(arguments, 0);
+        return args.reduce(function (x, y) {
+            return x.concat(y);
+        });
     };
 
     _.where = where;
@@ -57,5 +64,6 @@
     _.zip = zip;
     _.unzip = zip;
     _.bind = bind;
+    _.merge = merge;
     global._ = _;
 })(window);
