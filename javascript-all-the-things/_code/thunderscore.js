@@ -47,7 +47,7 @@
         var args = slice.call(arguments, 2);
 
         return function () {
-            return fn.apply(context, args.concat(slice.call(arguments, 0)));
+            return fn.apply(context, _.merge(args, slice.call(arguments, 0)));
         };
     };
 
