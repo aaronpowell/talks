@@ -1,23 +1,61 @@
 (function (global) {
     'use strict';
-    global._ = {};
+    var _ = {};
 
-    var zip = function (array) {
-        var args = arguments.length == 1 ? arguments[0] : Array.prototype.slice.call(arguments, 0);
+    var slice = Array.prototype.slice;
 
-        var len = args.map(function (x) { return x.length; }).sort()[0];
+    var where = function (array, fn) {
+        if (array.constructor == Object) {
+            var x = [];
+            for (var prop in array) {
+                x.push(array[prop]);
+            }
+            array = x;
+        }
+
+        return array.filter(fn);
+    };
+
+    var map = function (array, fn) {
+        if (array.constructor == Object) {
+            var x = [];
+            for (var prop in array) {
+                x.push(array[prop]);
+            }
+            array = x;
+        }
+        return array.map(fn);
+    };
+
+    var zip = function () {
+        var args = arguments.length == 1 ? arguments[0] : slice.call(arguments, 0);
+
+        var len = args.map(function (x) { return x.length; }).sort().reverse()[0];
 
         var result = new Array(len);
 
         var index = -1;
 
         while (++index < len) {
-        result[index] = args.map(function (x) { return x[index]; });
+            result[index] = args.map(function (x) { return x[index]; });
         }
 
         return result;
     };
 
-    global._.zip = zip;
-    global._.unzip = zip;
+    var bind = function (fn, context) {
+        var args = Array.prototype.slice.call(arguments, 2);
+
+        return function () {
+            return fn.apply(context, args.concat(slice.call(arguments, 0)));
+        };
+    };
+
+    _.where = where;
+    _.filter = where;
+    _.map = map;
+    _.zip = zip;
+    _.unzip = zip;
+    _.bind = bind;
+    global._ = _;
 })(window);
