@@ -46,6 +46,7 @@
 
 <script>
   describe('functional programming', function () {
+    'use strict';
     describe('arrays', function () {
       it('should filter a collection', function () {
         var values = _.where([1, 2, 3, 4, 5], function (x) { return !!(x % 2); });
