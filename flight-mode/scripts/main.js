@@ -24,7 +24,5 @@ $(function() {
         }
     });
 
-    document.getElementById('ua').innerText = navigator.userAgent;
-
     $('a[href^=http]').attr('target', '_blank');
 });

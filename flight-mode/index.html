@@ -105,6 +105,40 @@
     <h1>Not really great for the users is it?</h1>
 </section>
 
+<!-- Detecting offline -->
+
+<section class="slide">
+    <h1>Knowning you're offline</h1>
+</section>
+
+<section class="slide">
+    <h2>Modern browsers</h2>
+    <pre class="slide code" mode="javascript" theme="cobalt">
+document.addEventListener('online', function () {
+   //app is now online 
+});
+document.addEventListener('offline', function () {
+   //app is now offline 
+});
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Legacy browsers</h2>
+    <pre class="slide code" mode="javascript" theme="cobalt">(function checkOnline() {
+    $.get('/keep-alive').done(function () {
+        navigator.onLine = true;
+        setTimeout(checkOnline, 10000);
+    }).error(function () {
+        navigator.onLine = false;
+        setTimeout(checkOnline, 10000);
+    });
+})();</pre>
+    <p class="slide"><a href="demos/online-offline">Demo</a></p>
+</section>
+
+<!-- Cookies -->
+
 <section class="slide">
     <h1>Cookies</h1>
 </section>
@@ -183,10 +217,6 @@
 
 
 <!-- Initialize the deck. You can put this in an external file if desired. -->
-
-<script src="scripts/Three.js"></script>
-<script src="scripts/Detector.js"></script>
 <script src="scripts/main.js"></script>
-<script src="scripts/ie-webgl.js"></script>
 </body>
 </html>
