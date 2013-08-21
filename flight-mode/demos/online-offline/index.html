@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <title>Detecting online/offline</title>
+
+    <style type="text/css">
+        html {
+          margin: 20px;
+        }
+
+        body {
+          width: 778px;
+          margin: 0 auto;
+          padding: 15px 40px;
+          font-family: Helvetica, Arial, sans-serif;
+          font-size: 16px;
+          line-height: 1.75;
+          color: #111;
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="../shared/codemirror-3.15/lib/codemirror.css">
+    <link rel="stylesheet" href="../shared/toastr/toastr.css">
+
+    <script src="../shared/codemirror-3.15/lib/codemirror.js"></script>
+    <script src="../shared/codemirror-3.15/mode/javascript/javascript.js"></script>
+    <script src="../shared/jquery-2.0.3.min.js"></script>
+    <script src="../shared/toastr/toastr.min.js"></script>
+
+</head>
+<body>
+    <h1>Detecting online/offline</h1>
+
+    <p>Online/offline status can be detected for an app can be detected using <code>navigator.onLine</code>.</p>
+
+    <p>There are also events which can be listened for:</p>
+
+    <textarea>
+document.addEventListener('online', function () {
+    toastr.success('We\'re back in business!');
+});
+
+document.addEventListener('offline', function () {
+    toastr.warning('Hey, your app has gone offline!');
+});
+    </textarea>
+
+    <button>Run</button>
+
+    <script>
+    var editor = CodeMirror.fromTextArea(document.getElementsByTagName("textarea")[0], {
+        lineNumbers: true,
+        matchBrackets: true,
+        continueComments: "Enter",
+        extraKeys: {"Ctrl-Q": "toggleComment"}
+    });
+
+    toastr.options = {
+      "debug": false,
+      "positionClass": "toast-top-left",
+      "onclick": null,
+      "fadeIn": 300,
+      "fadeOut": 1000,
+      "timeOut": 5000,
+      "extendedTimeOut": 1000
+    }
+
+    document.getElementsByTagName('button')[0].addEventListener('click', function () {
+        eval(editor.getValue());
+    });
+    </script>
+</body>
+</html>
