@@ -108,7 +108,7 @@
 <!-- Detecting offline -->
 
 <section class="slide">
-    <h1>Knowning you're offline</h1>
+    <h1>Knowing you're offline</h1>
 </section>
 
 <div class="slide">
@@ -150,6 +150,7 @@ document.addEventListener('offline', function () {
     <p class="slide"><a href="demos/online-offline">Demo</a></p>
 </section>
 -->
+
 <!-- Cookies -->
 
 <section class="slide">
@@ -166,6 +167,103 @@ document.addEventListener('offline', function () {
 
 <section class="slide">
     <h1><a href="demos/cookies" target="_blank" class="demo">Demo - implementing cookie storage</a></h1>
+</section>
+
+<section class="slide">
+    <h2>Paying the price</h2>
+    <ul>
+        <li class="slide">You're adding weight to HTTP requests</li>
+        <li class="slide">Cookie API is pretty sloppy</li>
+        <li class="slide">Security concerns</li>
+        <li class="slide">It's synchronous</li>
+    </ul>
+</section>
+
+<!-- Local/Session storage -->
+
+<section class="slide">
+    <h1>Web Storage</h1>
+</section>
+
+<section class="slide">
+    <h2>Is it HTML5 storage?</h2>
+    <p><code>localStorage</code> and <code>sessionStorage</code></p>
+    <p>Support back to IE8.</p>
+    <p>Key/Value store.</p>
+    <p>Quite a nice API.</p>
+</section>
+
+<section class="slide">
+    <h1><a href="demos/web-storage" target="_blank" class="demo">Demo - implementing web storage</a></h1>
+</section>
+
+<section class="slide">
+    <h2>The downside</h2>
+    <ul>
+        <li class="slide">API is limiting for advanced usage</li>
+        <li class="slide">No expiry of records</li>
+        <li class="slide">It's synchronous</li>
+    </ul>
+</section>
+
+<!-- IndexedDB -->
+
+<section class="slide">
+    <h1>IndexedDB</h1>
+</section>
+
+<section class="slide">
+    <h2>The big brother</h2>
+    <p>WebSQL is dead.</p>
+    <p>Simplified NoSQL database</p>
+    <p>Multiple stores, multiple tables, multiple indexes and transactions.</p>
+    <p>Asynchronous API.</p>
+</section>
+
+<section class="slide">
+    <h1><a href="demos/indexeddb" target="_blank" class="demo">Demo - IndexedDB</a></h1>
+</section>
+
+<section class="slide">
+    <h2>There's always a downside</h2>
+    <ul>
+        <li class="slide">Browser support, espcially no mobile Safair</li>
+        <li class="slide">API sucks</li>
+        <li class="slide">Not great for simple scenarios</li>
+    </ul>
+</section>
+
+<!-- Adding to an app -->
+
+<section class="slide">
+    <div class="vcenter">
+        <img src="images/cool-story-bro.jpg" alt="Cool story bro">
+        <p class="slide">How do I add it?</p>
+    </div>
+</section>
+
+<section class="slide"><img src="images/promise.jpg" alt=""></section>
+
+<section class="slide">
+    <h2>Make a promise</h2>
+    <p class="slide">We can simulate asynchronous APIs even when they aren't.</p>
+    <p class="slide">Write to storage and perform HTTP request, if the request fails we have the data, if it passes we can remove it.</p>
+</section>
+
+<section class="slide">
+    <h1><a href="demos/promise-saving" class="demo" target="_blank">Promise saving</a></h1>
+</section>
+
+<section class="slide"><img src="images/million-dollar-man.jpg" alt="" class="vcenter"></section>
+
+<section class="slide"><img src="images/million-paeso-man.jpg" alt="" class="vcenter"></section>
+
+<section class="slide">
+    <h1><a href="demos/amplifyjs" class="demo" target="_blank">AmplifyJS</a></h1>
+</section>
+
+<section class="slide">
+    <h1><a href="demos/dbjs" class="demo" target="_blank">db.js</a></h1>
 </section>
 
 <!-- End slides. -->
