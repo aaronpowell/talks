@@ -9,10 +9,29 @@
 
     newItem.addEventListener('keydown', function (e) {
         if (e.keyCode == 13 && newItem.value) {
-            flightMode.add({
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', '/flight-mode', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            var data = {
                 text: newItem.value, 
                 completed: false
-            }).then(function () {
+            };
+
+            xhr.setRequestHeader('Content-Length', JSON.stringify(data).length);
+            xhr.setRequestHeader('Connection', 'close');
+
+            var d = Q.defer();
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4 && xhr.status == 200) {
+                    d.resolve(JSON.parse(xhr.responseText));
+                }
+            };
+
+            xhr.send(JSON.stringify(data));
+
+            Q.all(d.promise, flightMode.add(data)).then(function () {
                 newItem.value = '';
                 refreshItems();
             });
