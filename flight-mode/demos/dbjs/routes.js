@@ -4,7 +4,3 @@ exports.data = function (req, res) {
     lastName: 'Smith'
   });
 };
-
-exports.view = function (req, res) {
-    res.render('index');
-};
