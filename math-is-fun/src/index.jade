@@ -1,0 +1,125 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Math is fun!
+
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      section
+        h1 Math is fun!
+
+      section
+        h2 Hi!
+        ul
+          li Aaron Powell
+          li <a href="https://twitter.com/slace">@slace</a>
+          li Readify Senior Consultant
+
+      section
+        h2 A few months ago
+        img.js-conf-logo(src="images/js.png")
+
+      section
+        h1 I wrote my own number system
+
+      section
+        img(src="http://www.reactiongifs.com/r/yes-wait-wtf.gif")
+
+      section
+        pre
+          code.language-clike.
+            var one = Surreal.Zero()++;
+            var two = one++;
+
+            var three = one + two;
+
+            Assert.That(three.Int(), Is.EqualTo(3));
+
+      section
+        h2.bullet You need to...
+        ul
+          li Do equality
+          li Add
+          li Subtract
+          li Multiply
+          li Divide
+
+      section
+        h1 Let's start with equaliy
+
+      section
+        h2.bullet ==
+        ul
+          li Not less than
+          li Not greater than
+
+      section
+        h2.bullet >=
+        ul
+          li Not less than
+
+      section
+        h2.bullet >
+        ul
+          li Not less than
+          li Not equal to
+
+      section
+        h3 So we can use just use <code>&lt;=</code>
+
+      section(data-bespoke-state='emphatic')
+        h1 Show me some code!
+
+      section
+        h1.bullet Easy!
+        p.bullet First to reach zero wins!
+
+      section
+        h1.bullet Math!
+        h2.bullet Well, elementary arithmatic
+
+      section
+        h2.bullet One and One is Two
+        h2.bullet Two and Two is Four
+
+      section
+        h2.bullet So how do you add two numbers?
+        ul
+          li
+            code 1 + 1 == 2
+          li
+            code 2 + -1 == 1
+          li
+            code -1 + -1 == -2
+
+      section
+        p But what actually happens?
+
+      section
+        h2.bullet Maybe something trickier, division
+        ul
+          li
+            code 4 / 2 == 2
+          li
+            code 5 / 2 == 2.5
+
+      section
+        p Let's see how division works
+
+      section
+        p Did you see why you can't divide by zero then?
+
+      section
+        h2.bullet And that's how you math
+        ul
+          li It's beautiful
+          li It's pointless
+          li It's a lot of fun
+
+    script(src='build/build.js')
