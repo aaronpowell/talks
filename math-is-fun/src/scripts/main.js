@@ -8,11 +8,12 @@ var bespoke = require('bespoke'),
   hash = require('bespoke-hash'),
   progress = require('bespoke-progress'),
   state = require('bespoke-state'),
-  forms = require('bespoke-forms');
+  forms = require('bespoke-forms'),
+  voltaire = require('bespoke-theme-voltaire');
 
 // Bespoke.js
 bespoke.from('article', [
-  cube(),
+  voltaire(),
   keys(),
   touch(),
   bullets('li, .bullet'),
@@ -27,4 +28,3 @@ bespoke.from('article', [
 // This is actually loaded from "bower_components" thanks to
 // debowerify: https://github.com/eugeneware/debowerify
 require('prism');
-
