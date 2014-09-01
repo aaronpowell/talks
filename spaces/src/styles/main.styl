@@ -1,0 +1,27 @@
+// New to Stylus? Check out http://learnboost.github.io/stylus
+// Use modern CSS thanks to Autoprefixer: https://github.com/ai/autoprefixer
+
+.show-spaces
+    font-family: serif
+
+.bespoke-parent {
+    overflow: hidden;
+}
+
+section {
+  backface-visibility: hidden;
+  transition: all 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  z-index: 1;
+}
+section.bespoke-before {
+  transform: translate3d(-2000px, 0, 0);
+}
+section.bespoke-before-1 {
+  transform: translate3d(-1000px, 0, 0);
+}
+section.bespoke-after {
+  transform: translate3d(2000px, 0, 0);
+}
+section.bespoke-after-1 {
+  transform: translate3d(1000px, 0, 0);
+}
