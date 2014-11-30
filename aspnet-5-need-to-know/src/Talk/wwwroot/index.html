@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ASPNet 5 - What do I need to know?</title>
+
+    <style>
+        a {
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        li::before {
+            content: '';
+        }
+
+        article {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+            article::before, article::after {
+                display: block;
+                position: absolute;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                content: "";
+                -webkit-filter: grayscale(0.3) brightness(0.3);
+                -moz-filter: grayscale(0.3) brightness(0.3);
+                filter: grayscale(0.3) brightness(0.3);
+            }
+
+            article::before {
+                z-index: 1;
+                width: 20%;
+                height: 20%;
+                top: 50%;
+                left: 50%;
+                margin-top: -5%;
+                margin-left: -10%;
+                -webkit-transform: scale(5.5);
+                -moz-transform: scale(5.5);
+                -ms-transform: scale(5.5);
+                -o-transform: scale(5.5);
+                transform: scale(5.5);
+            }
+
+            article::after {
+                z-index: 1;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            article.huh::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/huh.gif");
+            }
+
+            article.cookie::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/cookie-monster.gif");
+            }
+
+            article.they-re-here::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/they-re-here.gif");
+            }
+
+            article.bad-decisions::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/bad-decisions.gif");
+            }
+
+            article.matrix::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/matrix.gif");
+            }
+
+            article.weird::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/lets-get-weird.gif");
+            }
+
+            article.right-on::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/right-on.gif");
+            }
+
+            article.well::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/well.gif");
+            }
+
+            article.mind-blown::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/mind_blown.gif");
+                opacity: 0.5;
+            }
+    </style>
+
+</head>
+<body>
+    <article id="presentation">
+        <section>
+            <h1>ASP.NET 5</h1>
+            <h2>What do I need to know?</h2>
+            <h3>Aaron Powell | <a href="http://twitter.com/slace">@slace</a></h3>
+        </section>
+
+        <section data-bespoke-state="huh">
+            <h1>Did you mean MVC 5?</h1>
+        </section>
+
+        <section data-bespoke-state="cookie">
+            <h1><a href="https://github.com/aspnet">github.com/aspnet</a></h1>
+        </section>
+
+        <section>
+            <h2 data-bespoke-bullet="true">Complete rewrite</h2>
+            <h3 data-bespoke-bullet="true">It's more like a v1</h3>
+        </section>
+
+        <section data-bespoke-state="they-re-here">
+            <ul>
+                <li data-bespoke-bullet="true"></li>
+                <li data-bespoke-bullet="true">MVC</li>
+                <li data-bespoke-bullet="true">WebAPI</li>
+                <li data-bespoke-bullet="true">SignalR</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>What's different then?</h1>
+        </section>
+
+        <section>
+            <h1 data-bespoke-bullet="true">Roslyn</h1>
+                <ul>
+                    <li data-bespoke-bullet="true">No build artifacts</li>
+                    <li data-bespoke-bullet="true">Compile to memory</li>
+                </ul>
+        </section>
+
+        <section>
+            <h1 data-bespoke-bullet="true"><code>project.json</code></h1>
+            <ul>
+                <li data-bespoke-bullet="true">No csproj file</li>
+                <li data-bespoke-bullet="true">No tracking of files</li>
+                <li data-bespoke-bullet="true">Define target frameworks</li>
+                <li data-bespoke-bullet="true">Define commands to run</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1 data-bespoke-bullet="true">Multiple CLRs</h1>
+            <ul>
+                <li data-bespoke-bullet="true">
+                    Full CLR
+                    <ul>
+                        <li>What you're use to</li>
+                        <li>Most backwards compatible</li>
+                    </ul>
+                </li>
+
+                <li data-bespoke-bullet="true">
+                    Core CLR
+                    <ul>
+                        <li>Small</li>
+                        <li>Modular</li>
+                        <li>Designed for cloud</li>
+                    </ul>
+                </li>
+
+                <li data-bespoke-bullet="true">
+                    X-Plat CLR
+                    <ul>
+                        <li>Mono as a first-class citizen</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h1 data-bespoke-bullet="true">MVC and WebAPI</h1>
+            <ul>
+                <li data-bespoke-bullet="true">Current - different Controller classes, route tables, filters, etc</li>
+                <li data-bespoke-bullet="true">All has been merged</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1 data-bespoke-bullet="true">All OWIN</h1>
+            <ul>
+                <li data-bespoke-bullet="true">Configure services</li>
+                <li data-bespoke-bullet="true">Use components</li>
+                <li data-bespoke-bullet="true">All DI</li>
+            </ul>
+        </section>
+
+        <section data-bespoke-state="matrix">
+            <h1>Show me the code</h1>
+        </section>
+
+        <section data-bespoke-state="weird">
+        </section>
+
+        <section>
+            <ul>
+                <li data-bespoke-bullet="true"></li>
+                <li data-bespoke-bullet="true">Controllers don't need a base class</li>
+                <li data-bespoke-bullet="true">No web.config == plugable config</li>
+                <li data-bespoke-bullet="true">No <code>System.Web.dll</code> == No YSOD</li>
+            </ul>
+        </section>
+
+        <section data-bespoke-state="matrix">
+            <h1 data-bespoke-bullet="true">Show me the code</h1>
+        </section>
+
+        <section data-bespoke-state="mind-blown">
+            <h1 data-bespoke-bullet="true">Next?</h1>
+
+            <ul>
+                <li data-bespoke-bullet="true">Install VS 2015 Preview</li>
+                <li data-bespoke-bullet="true">Tooling is very v1</li>
+                <li data-bespoke-bullet="true">C# only</li>
+                <li data-bespoke-bullet="true">Deployment is still pretty difficult</li>
+            </ul>
+        </section>
+
+        <section data-bespoke-state="well"></section>
+
+        <section data-bespoke-state="right-on">
+            <h1>Thank you</h1>
+        </section>
+    </article>
+
+    <script src="dist/Talk.js"></script>
+</body>
+</html>

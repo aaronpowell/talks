@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22231.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AFB9E680-1FC9-4117-88B3-72CC87A8CE26}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Talk", "src\Talk\Talk.kproj", "{95BE5FE4-AA7F-4872-B0AF-9DCCF8B01169}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B1F57799-721C-4AD5-8881-3B221423177A}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95BE5FE4-AA7F-4872-B0AF-9DCCF8B01169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95BE5FE4-AA7F-4872-B0AF-9DCCF8B01169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95BE5FE4-AA7F-4872-B0AF-9DCCF8B01169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95BE5FE4-AA7F-4872-B0AF-9DCCF8B01169}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95BE5FE4-AA7F-4872-B0AF-9DCCF8B01169} = {AFB9E680-1FC9-4117-88B3-72CC87A8CE26}
+	EndGlobalSection
+EndGlobal

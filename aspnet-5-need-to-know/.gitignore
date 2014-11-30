@@ -1,0 +1,5 @@
+*.ide
+bower_components/
+obj/
+*.suo
+*.user

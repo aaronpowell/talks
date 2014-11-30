@@ -17,3 +17,5 @@ npm-debug.log
 *.sublime-workspace
 
 config.js
+
+bin/
