@@ -4,7 +4,8 @@
     bullets = require('bespoke-bullets'),
     hash = require('bespoke-hash'),
     nebula = require('bespoke-theme-nebula'),
-    state = require('bespoke-state');
+    state = require('bespoke-state'),
+    scale = require('bespoke-scale');
 
 var deck = bespoke.from('#presentation', [
     classes(),
@@ -12,5 +13,6 @@ var deck = bespoke.from('#presentation', [
     bullets(),
     hash(),
     nebula(),
-    state()
+    state(),
+    scale()
 ]);

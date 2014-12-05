@@ -1,15 +1,16 @@
 {
-    "version": "0.0.0",
-    "name": "Talk",
-    "devDependencies": {
-        "grunt": "0.4.5",
-        "grunt-browserify": "^3.2.1",
-        "bespoke": "^1.0.0",
-        "bespoke-keys": "^1.0.0",
-        "bespoke-hash": "^1.0.0",
-        "bespoke-classes": "^1.0.0",
-        "bespoke-bullets": "^1.1.0",
-        "bespoke-theme-nebula": "^1.0.1",
-        "bespoke-state": "^1.0.0"
-    }
+  "version": "0.0.0",
+  "name": "Talk",
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-browserify": "^3.2.1",
+    "bespoke": "^1.0.0",
+    "bespoke-keys": "^1.0.0",
+    "bespoke-hash": "^1.0.0",
+    "bespoke-classes": "^1.0.0",
+    "bespoke-bullets": "^1.1.0",
+    "bespoke-theme-nebula": "^1.0.1",
+    "bespoke-state": "^1.0.0",
+    "bespoke-scale": "^1.0.1"
+  }
 }

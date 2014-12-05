@@ -65,6 +65,20 @@
                 background-image: url("/img/huh.gif");
             }
 
+            article.sponsors::before {
+                -webkit-filter: grayscale(0) brightness(0.9);
+                -moz-filter: grayscale(0) brightness(0.9);
+                filter: grayscale(0) brightness(0.9);
+                background-image: url("/img/all_logos.png");
+                animation-name: flipper;
+                animation-duration: 5s;
+                animation-iteration-count: infinte;
+
+                -webkit-animation-name: flipper;
+                -webkit-animation-duration: 5s;
+                -webkit-animation-iteration-count: infinite;
+            }
+
             article.cookie::before {
                 -webkit-filter: grayscale(0.3) brightness(0.4);
                 -moz-filter: grayscale(0.3) brightness(0.4);
@@ -121,11 +135,40 @@
                 background-image: url("/img/mind_blown.gif");
                 opacity: 0.5;
             }
+
+            article.need-it::before {
+                -webkit-filter: grayscale(0.3) brightness(0.4);
+                -moz-filter: grayscale(0.3) brightness(0.4);
+                filter: grayscale(0.3) brightness(0.4);
+                background-image: url("/img/need-it-2.gif");
+                opacity: 0.5;
+            }
+
+            @-webkit-keyframes flipper {
+                0% {
+                    transform: rotateY(0deg) rotateX(0deg) scale(5.5);
+                }
+
+                50% {
+                    transform: rotateY(180deg) rotateX(0deg) scale(5.5);
+                }
+
+                75% {
+                    transform: rotateY(180deg) rotateX(180deg) scale(5.5);
+                }
+
+                100% {
+                    transform: rotateY(360deg) rotateX(360deg) scale(5.5);
+                }
+            }
     </style>
 
 </head>
 <body>
     <article id="presentation">
+        <section data-bespoke-state="sponsors">
+        </section>
+
         <section>
             <h1>ASP.NET 5</h1>
             <h2>What do I need to know?</h2>
@@ -216,6 +259,7 @@
         <section>
             <h1 data-bespoke-bullet="true">All OWIN</h1>
             <ul>
+                <li data-bespoke-bullet="true">Everything is middleware</li>
                 <li data-bespoke-bullet="true">Configure services</li>
                 <li data-bespoke-bullet="true">Use components</li>
                 <li data-bespoke-bullet="true">All DI</li>
@@ -241,6 +285,8 @@
         <section data-bespoke-state="matrix">
             <h1 data-bespoke-bullet="true">Show me the code</h1>
         </section>
+
+        <section data-bespoke-state="need-it"></section>
 
         <section data-bespoke-state="mind-blown">
             <h1 data-bespoke-bullet="true">Next?</h1>
